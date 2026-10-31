@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0911">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GHOST MODE">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>GHOST MODE</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0911;--panel:#171321;--panel2:#211832;--purple:#a879ff;--muted:#a69bb5;--line:#342a43}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#211432 0,#0b0911 48%);font-family:system-ui,-apple-system,sans-serif;color:#fff;min-height:100vh;padding:env(safe-area-inset-top) 16px env(safe-area-inset-bottom)}
+main{max-width:520px;margin:auto;padding:18px 0 28px}.top{display:flex;align-items:center;justify-content:space-between;margin:8px 0 20px}.brand{display:flex;gap:12px;align-items:center}.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(145deg,#40245f,#171021);display:grid;place-items:center;font-size:27px;box-shadow:0 8px 28px #0008}.name{font-weight:900;letter-spacing:1.5px;font-size:19px}.sub{font-size:10px;color:var(--purple);letter-spacing:2px;font-weight:800}.status{font-size:10px;color:#7ce3ad;border:1px solid #28684b;padding:6px 9px;border-radius:20px}
+.hero{background:linear-gradient(120deg,#211532,#15101e);border:1px solid #45305e;border-radius:20px;padding:19px;margin-bottom:17px}.eyebrow{font-size:10px;color:#c6a9ff;font-weight:800;letter-spacing:1.5px}.hero h1{font-size:24px;margin:8px 0 4px}.muted{color:var(--muted);font-size:12px;line-height:1.5}
+nav{display:flex;gap:7px;margin:16px 0}nav button{flex:1;background:#211c2b;color:#bdb2cb;border:1px solid var(--line);border-radius:12px;padding:11px 5px;font-weight:700}nav button.active{background:#7044a8;color:white;border-color:#9c6bdb}
+h2{font-size:12px;letter-spacing:1.5px;color:#d7c4f3;margin:20px 2px 10px}.card{background:#171321;border:1px solid #30263c;border-radius:17px;padding:15px;margin:10px 0}.toggle{display:flex;align-items:center;justify-content:space-between;gap:12px}.toggle+.toggle{border-top:1px solid #332a3d;margin-top:13px;padding-top:13px}.label{font-weight:750;font-size:14px}.desc{font-size:11px;color:var(--muted);margin-top:3px}.switch{appearance:none;width:46px;height:27px;border-radius:20px;background:#494250;position:relative;flex:none;transition:.2s}.switch:before{content:"";position:absolute;width:21px;height:21px;left:3px;top:3px;border-radius:50%;background:white;transition:.2s}.switch:checked{background:#8654c5}.switch:checked:before{transform:translateX(19px)}
+select,input[type=range]{width:100%;accent-color:var(--purple)}select{background:#241b30;color:white;border:1px solid #49375d;border-radius:11px;padding:12px;margin-top:8px}.rangehead{display:flex;justify-content:space-between;font-size:13px;font-weight:700}.range{margin:15px 0}.btn{width:100%;border:0;border-radius:12px;padding:13px;background:#8050bd;color:white;font-weight:800;margin-top:10px}.btn.secondary{background:#292233;border:1px solid #49375d}.hidden{display:none}.foot{text-align:center;color:#746b7e;font-size:10px;margin:24px 0 8px}.notice{font-size:11px;color:#b7a9c5;background:#211a2b;border-radius:12px;padding:12px;line-height:1.5}
+</style>
+</head>
+<body><main>
+<header class="top"><div class="brand"><div class="logo">👻</div><div><div class="name">GHOST MODE</div><div class="sub">FREE FIRE COMPANION</div></div></div><div class="status">● PRONTO</div></header>
+<section class="hero"><div class="eyebrow">PAINEL PESSOAL • VERSÃO 1.0</div><h1>WELCOME, PLAYER</h1><div class="muted">Organize suas configurações, salve seus perfis e personalize sua experiência.</div></section>
+<nav><button class="active" data-tab="panel">Painel</button><button data-tab="sensi">Sensi</button><button data-tab="about">Sobre</button></nav>
+<section id="panel">
+<h2>RECURSOS DO APLICATIVO</h2>
+<div class="card">
+<div class="toggle"><div><div class="label">Treino de mira</div><div class="desc">Lembrete para praticar no modo de treinamento</div></div><input class="switch" type="checkbox" data-save="training"></div>
+<div class="toggle"><div><div class="label">Organizador de HUD</div><div class="desc">Controle seu perfil de layout salvo</div></div><input class="switch" type="checkbox" data-save="hud" checked></div>
+<div class="toggle"><div><div class="label">Dicas de precisão</div><div class="desc">Mostrar dicas de treino dentro do painel</div></div><input class="switch" type="checkbox" data-save="tips"></div>
+<div class="toggle"><div><div class="label">Tema neon</div><div class="desc">Ativar detalhes visuais roxos</div></div><input class="switch" type="checkbox" data-save="neon" checked></div>
+</div>
+<h2>PERFIL DE JOGO</h2><div class="card"><div class="label">Estilo de configuração</div><select id="profile"><option>Equilibrado</option><option>Precisão</option><option>Agressivo</option><option>Personalizado</option></select><button class="btn" id="saveProfile">SALVAR PERFIL</button></div>
+</section>
+<section id="sensi" class="hidden"><h2>SENSIBILIDADE • VALORES DE REFERÊNCIA</h2><div class="card" id="ranges"></div><button class="btn" id="copy">COPIAR CONFIGURAÇÕES</button><button class="btn secondary" id="reset">RESTAURAR VALORES</button><p class="muted">Ajuste os valores aqui e, se desejar, copie-os para configurar manualmente nas opções do jogo. O painel não altera o Free Fire diretamente.</p></section>
+<section id="about" class="hidden"><h2>SOBRE O PROJETO</h2><div class="card"><div class="label">👻 GHOST MODE</div><p class="muted">Companion independente para organizar configurações e rotinas de treino de Free Fire.</p><p class="muted">Versão 1.0 • Desenvolvido para telas de iPhone.</p></div><div class="notice">Este aplicativo não injeta código, não lê a memória do jogo e não oferece mira automática, ESP ou cheats. Os controles gerenciam apenas recursos deste painel.</div></section>
+<div class="foot">GHOST MODE © 2026 • INDEPENDENT COMPANION</div>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+const keys=['training','hud','tips','neon'];
+keys.forEach(k=>{let el=document.querySelector(`[data-save="${k}"]`);let v=localStorage.getItem('gm-'+k);if(v!==null)el.checked=v==='true';el.addEventListener('change',()=>localStorage.setItem('gm-'+k,el.checked));});
+$('#profile').value=localStorage.getItem('gm-profile')||'Equilibrado';
+$('#saveProfile').onclick=()=>{localStorage.setItem('gm-profile',$('#profile').value);$('#saveProfile').textContent='PERFIL SALVO ✓';setTimeout(()=>$('#saveProfile').textContent='SALVAR PERFIL',1300)};
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x===b));['panel','sensi','about'].forEach(id=>$('#'+id).classList.toggle('hidden',id!==b.dataset.tab));});
+const defaults=[['Geral',85],['Ponto vermelho',90],['Mira 2x',80],['Mira 4x',75],['AWM',40],['Olhadinha',70]];
+const ranges=$('#ranges');
+defaults.forEach(([name,val],i)=>{let saved=localStorage.getItem('gm-range-'+i);let n=saved===null?val:+saved;let wrap=document.createElement('div');wrap.className='range';wrap.innerHTML=`<div class="rangehead"><label>${name}</label><output>${n}</output></div><input type="range" min="0" max="200" value="${n}">`;let input=wrap.querySelector('input'),out=wrap.querySelector('output');input.oninput=()=>{out.value=input.value;localStorage.setItem('gm-range-'+i,input.value)};ranges.append(wrap)});
+$('#copy').onclick=()=>{let lines=['GHOST MODE • '+($('#profile').value),''];[...ranges.querySelectorAll('.range')].forEach(x=>lines.push(x.querySelector('label').textContent+': '+x.querySelector('input').value));navigator.clipboard?.writeText(lines.join('\n')).then(()=>alert('Configurações copiadas!')).catch(()=>alert(lines.join('\n')))};
+$('#reset').onclick=()=>{defaults.forEach((x,i)=>{localStorage.removeItem('gm-range-'+i);let input=ranges.querySelectorAll('input')[i];input.value=x[1];input.previousElementSibling.value=x[1]})};
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script></body></html>
